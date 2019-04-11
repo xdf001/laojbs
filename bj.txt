@@ -1,0 +1,787 @@
+﻿你刘爸爸到此一游
+2019
+E[att~="val"] 
+说明：
+选择具有att属性且属性值为一用空格分隔的字词列表，其中一个等于val的E元素（包含只有一个值且该值等于val的情况）。
+
+E[att^="val"] 
+说明：
+选择具有att属性且属性值为以val开头的字符串的E元素。
+
+E[att$="val"]
+说明：
+选择具有att属性且属性值为以val结尾的字符串的E元素。
+
+E[att*="val"]
+说明：
+选择具有att属性且属性值为包含val的字符串的E元素。
+
+E[att|="val"]
+说明：
+选择具有att属性且属性值为以val开头并用连接符"-"分隔的字符串的E元素，如果属性值仅为val，也将被选择。
+<style>
+div[class|="a"] {
+	border: 2px solid #000;
+}
+</style>
+
+<div class="a-test">1</div>
+<div class="b-test">2</div>
+<div class="c-test">3</div>
+此例，将会命中第一个div，因为匹配到了class属性，且属性值以紧跟着"-"的a开头
+<!DOCTYPE html>
+<html>
+<head>
+  <title>2D transform_CSS参考手册_web前端开发参考手册系列</title>
+  <style>
+    .box{
+      width: 600px;
+      height: 600px;
+      background-color: paleturquoise;
+      margin: 0 auto;
+      display: flex;
+      /*flex-direction: row;*/ 
+      /*flex-wrap: wrap;*/
+      flex-flow: row wrap;
+      justify-content: space-around;
+      /*align-items: center;*/
+      /*align-content: center;*/
+    }
+    .box-item{
+      width: 200px;
+      height: 200px;
+      background-color: #0000fe;
+      font-size: 23px;
+      color: wheat;
+      text-align: center;
+      line-height: 200px;
+    }
+    /*.box-item:nth-child(4){*/
+      /*order: 1;*/
+      /*!*flex-grow: 1;*!*/
+    /*}*/
+    .box-item:nth-child(2){
+      align-self: flex-end;
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+  <div class="box-item">1</div>
+  <div class="box-item">2</div>
+  <div class="box-item">3</div>
+  <!--<div class="box-item">4</div>-->
+  <!--<div class="box-item">5</div>-->
+
+
+</div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8" />
+  <title>animation_CSS参考手册_web前端开发参考手册系列</title>
+  <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+  <style>
+    div{position:absolute;
+      top:50%;
+      left:50%;
+      overflow:hidden;
+      width:300px;
+      height:150px;
+      margin:-75px 0 0 -150px;
+      border:3px solid #eee;
+      background:#e0e0e0;}
+    span{display:block;
+      height:50px;
+    }
+    .a1{
+      transform:rotate(360deg);
+      animation:animations 2s ease-out forwards;
+    }
+    @keyframes animations{
+      0%{transform:rotate(0deg);opacity:0;}
+      100%{transform:rotate(360deg);opacity:1;}
+    }
+    .a3{
+      opacity: 0;
+      transform:rotate(360deg);
+      animation:animations3 2s ease-out 2s forwards;
+    }
+    @keyframes animations3{
+      0%{transform:rotate(0deg);opacity:0;}
+      100%{transform:rotate(360deg);opacity:1;}
+    }
+    .a2{
+      opacity: 0;
+      text-align:center;font-size:26px;
+      animation:animations2 5s ease-in-out 4s forwards;
+    }
+    @keyframes animations2{
+      0%{opacity:0;}
+      100%{opacity:1;}
+    }
+  </style>
+</head>
+<body>
+<div>
+  <span class="a1">CSS3 Animations</span>
+  <span class="a2">CSS3 Animations</span>
+  <span class="a3">CSS3 Animations</span>
+</div>
+</body>
+</html>
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>2D transform_CSS参考手册_web前端开发参考手册系列</title>
+  <style>
+.box{
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+    .container{
+      width: 200px;
+      height: 200px;
+      margin: 100px auto;
+      transform-style: preserve-3d;
+      transform: rotateX(45deg) rotateY(45deg);
+      animation:12s zhuan linear infinite;
+
+    }
+    .container div{
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border: 1px solid #000;
+      text-align: center;
+      line-height: 200px;
+      font-size: 20px;
+      opacity: 0.7;
+    }
+@keyframes zhuan {
+  0% {
+    transform: rotate3d(0, 0, 0, 0);
+  }
+  100% {
+    transform: rotate3d(45, 45, 45, 360deg);
+  }
+}
+    .a{
+      background-color: red;
+      animation: animation1 4s ease-in 1s forwards;
+    }
+ .b{
+      background-color: orange;
+   animation: animation2 4s ease-in 1s forwards;
+    }
+ .c{
+      background-color: yellow;
+   animation: animation3 4s ease-in 1s forwards;
+    }
+ .d{
+      background-color: green;
+   animation: animation4 4s ease-in 1s forwards;
+    }
+ .e{
+      background-color: blue;
+   animation: animation5 4s ease-in 1s forwards;
+    }
+ .f{
+      background-color: navy;
+   animation: animation6 4s ease-in 1s forwards;
+    }
+@keyframes animation1 {
+to{
+  transform: rotateX(90deg) translateZ(100px);
+}
+}@keyframes animation2 {
+to{ transform: rotateX(-90deg) translateZ(100px);}
+}@keyframes animation3 {
+to{ transform: rotateY(-90deg) translateZ(100px);}
+}@keyframes animation4 {
+to{ transform: rotateY(90deg) translateZ(100px);}
+}@keyframes animation5 {
+to{ transform: translateZ(100px);}
+}@keyframes animation6 {
+to{ transform: rotateY(180deg) translateZ(100px);}
+}
+
+  </style>
+</head>
+<body>
+<div class="box">
+  <div class="container">
+    <div class="a">w</div>
+    <div class="b">e</div>
+    <div class="c">q</div>
+    <div class="d">r</div>
+    <div class="e">s</div>
+    <div class="f">v</div>
+  </div>
+</div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>2D transform_CSS参考手册_web前端开发参考手册系列</title>
+  <style>
+    .box1{
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      padding: 10px;
+      background-color: #f7f7f7;
+      border: 1px solid #000000;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .box .box-item{
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #000000;
+    }
+    .box2{
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      padding: 10px;
+      background-color: #f7f7f7;
+      border: 1px solid #000000;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      align-items: center;
+      transform: rotateZ(90deg);
+    }
+    .box2 .box-item{
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background-color: #000000;
+    }
+    .box3{
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      padding: 10px;
+      background-color: #f7f7f7;
+      border: 1px solid #000000;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .box3 .box-item:nth-child(1){
+      align-self: flex-start;
+    }
+    .box3 .box-item:nth-child(3){
+      align-self: flex-end;
+    }
+    .box3 .box-item{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #000000;
+    }
+    .box4{
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      padding: 10px;
+      background-color: #f7f7f7;
+      border: 1px solid #000000;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .box4 .box-item{
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background-color: #000000;
+    }
+    .box5{
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      padding: 10px;
+      background-color: #f7f7f7;
+      display: flex;
+      border: 1px solid #000000;
+      flex-flow: row wrap;
+      justify-content: space-between;
+    }
+    .box5 .box-item{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #000000;
+    }
+    .box5 .box-item:nth-child(2){
+      margin-top: 50px;
+    }
+    .box5 .box-item:nth-child(1){
+      align-self: flex-start;
+    }.box5 .box-item:nth-child(3){
+      align-self: flex-start;
+    }.box5 .box-item:nth-child(4){
+      align-self: flex-end;
+    }.box5 .box-item:nth-child(5){
+      align-self: flex-end;
+    }
+.box6{
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #f7f7f7;
+  display: flex;
+  border: 1px solid #000000;
+  flex-flow: row wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+    .box6 .box-item{
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">
+    <div class="box-item"></div>
+  </div>
+<div class="box2">
+  <div class="box-item"></div>
+  <div class="box-item"></div>
+</div>
+  <div class="box3">
+    <div class="box-item"></div>
+    <div class="box-item"></div>
+    <div class="box-item"></div>
+  </div>
+  <div class="box4">
+    <div class="box-item"></div>
+    <div class="box-item"></div>
+    <div class="box-item"></div>
+    <div class="box-item"></div>
+  </div>
+  <div class="box5">
+  <div class="box-item"></div>
+  <div class="box-item"></div>
+  <div class="box-item"></div>
+  <div class="box-item"></div>
+  <div class="box-item"></div>
+  </div>
+  <div class="box6">
+    <div class="box-item"></div>
+    <div class="box-item"></div>
+    <div class="box-item"></div>
+    <div class="box-item"></div>
+    <div class="box-item"></div>
+    <div class="box-item"></div>
+  </div>
+</body>
+</html>
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    @keyframes leafRotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .fan {
+      width: 230px;
+      position: absolute;
+      z-index: 10;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 150px
+    }
+    .fan .header {
+      width: 230px;
+      height: 230px;
+      position: absolute;
+      left: -15px;
+      top: -15px;
+      background: #42c7ea;
+      border-radius: 50%;
+      z-index: 10;
+      border: 2px solid #0e6873;
+    }
+    .fan .mask {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 2px solid #0e6873;
+      position: relative;
+      background: #e4ecef;
+      z-index: 11;
+    }
+    .fan .mask .logo {
+      border: 2px solid #0e6873;
+      border-radius: 50%;
+      position: absolute;
+      width: 80px;
+      height: 90px;
+      text-align: center;
+      line-height: 90px;
+      color: #0e6873;
+      font-size: 14px;
+      top: 53px;
+      left: 58px;
+      background: #42c7ea;
+      z-index: 3;
+    }
+    .fan .mask .line_1 {
+      width: 200px;
+      height: 2px;
+      background: #3c8a93;
+      position: absolute;
+      top: 99px;
+      z-index: 2;
+    }
+    .fan .mask .line_2 {
+      width: 200px;
+      height: 2px;
+      background: #3c8a93;
+      position: absolute;
+      top: 99px;
+      z-index: 2;
+      transform: rotate(30deg);
+    }
+    .fan .mask .line_3 {
+      width: 200px;
+      height: 2px;
+      background: #3c8a93;
+      position: absolute;
+      top: 99px;
+      z-index: 2;
+      transform: rotate(60deg);
+    }
+    .fan .mask .line_4 {
+      width: 200px;
+      height: 2px;
+      background: #3c8a93;
+      position: absolute;
+      top: 99px;
+      z-index: 2;
+      transform: rotate(90deg);
+    }
+    .fan .mask .line_5 {
+      width: 200px;
+      height: 2px;
+      background: #3c8a93;
+      position: absolute;
+      top: 99px;
+      z-index: 2;
+      transform: rotate(120deg);
+    }
+    .fan .mask .line_6 {
+      width: 200px;
+      height: 2px;
+      background: #3c8a93;
+      position: absolute;
+      top: 99px;
+      z-index: 2;
+      transform: rotate(150deg);
+    }
+    .fan .mask .leafs {
+      z-index: 1;
+      position: absolute;
+      animation: leafRotate 0s infinite linear;
+      transform-origin: center center;
+      width: 200px;
+      height: 200px;
+    }
+    .fan .mask .leafs .leaf_1 {
+      width: 72px;
+      height: 60px;
+      border-radius: 20% 40%;
+      background: #bdcc2b;
+      border: 2px solid #0e6873;
+      position: absolute;
+      left: 100px;
+      top: 100px;
+      transform-origin: left top;
+    }
+    .fan .mask .leafs .leaf_2 {
+      width: 72px;
+      height: 60px;
+      border-radius: 20% 40%;
+      background: #bdcc2b;
+      border: 2px solid #0e6873;
+      position: absolute;
+      left: 100px;
+      top: 100px;
+      transform-origin: left top;
+      transform: rotate(120deg);
+    }
+    .fan .mask .leafs .leaf_3 {
+      width: 72px;
+      height: 60px;
+      border-radius: 20% 40%;
+      background: #bdcc2b;
+      border: 2px solid #0e6873;
+      position: absolute;
+      left: 100px;
+      top: 100px;
+      transform-origin: left top;
+      transform: rotate(240deg);
+    }
+    .fan .neck {
+      width: 40px;
+      height: 70px;
+      border: 2px solid #0e6873;
+      background: #42c7ea;
+      position: absolute;
+      left: 80px;
+      z-index: 9;
+      border-radius: 0 0 5% 5%;
+    }
+    .fan .neck_footer {
+      width: 50px;
+      height: 20px;
+      border: 2px solid #0e6873;
+      background: #77e1f1;
+      position: absolute;
+      top: 263px;
+      left: 75px;
+      border-radius: 50%;
+      z-index: 8;
+    }
+    .fan .bottom {
+      width: 200px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid #0e6873;
+      background: #42c7ea;
+      position: absolute;
+      top: 250px;
+      left: 0;
+      z-index: 7;
+    }
+
+    .fan .bottom_footer_1 {
+      width: 20px;
+      height: 20px;
+      background: #bdcc2b;
+      border: 2px solid #0e6873;
+      position: absolute;
+      border-radius: 40%;
+      z-index: 6;
+      top: 310px;
+      left: 20px;
+    }
+    .fan .bottom_footer_2 {
+      width: 20px;
+      height: 20px;
+      background: #bdcc2b;
+      border: 2px solid #0e6873;
+      position: absolute;
+      border-radius: 40%;
+      z-index: 6;
+      top: 310px;
+      left: 160px;
+    }
+    .fan .switch_0 {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 296px;
+      z-index: 13;
+      opacity: 0;
+      cursor: pointer;
+      left: 50px;
+    }
+    .fan .switch_0:checked + div + input + div .mask .leafs {
+      animation-play-state: paused;
+    }
+    .fan .switch_1 {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 296px;
+      z-index: 13;
+      opacity: 0;
+      cursor: pointer;
+      left: 75px;
+    }
+    .fan .switch_1:checked + div {
+      background: #a9af27;
+      color: #0e6873;
+    }
+    .fan .switch_1:checked + div + input + div + input + div + .mask .leafs {
+      animation-duration: 0.7s;
+    }
+    .fan .switch_2 {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 296px;
+      z-index: 13;
+      opacity: 0;
+      cursor: pointer;
+      left: 100px;
+    }
+    .fan .switch_2:checked + div {
+      background: #a9af27;
+      color: #0e6873;
+    }
+    .fan .switch_2:checked + div + input + div + .mask .leafs {
+      animation-duration: 0.4s;
+    }
+    .fan .switch_3 {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 296px;
+      z-index: 13;
+      opacity: 0;
+      cursor: pointer;
+      left: 125px;
+    }
+    .fan .switch_3:checked + div {
+      background: #a9af27;
+      color: #0e6873;
+    }
+    .fan .switch_3:checked + div + .mask .leafs {
+      animation-duration: 0.3s;
+    }
+    .fan .switch_btn_0 {
+      display: inline-block;
+      text-align: center;
+      width: 18px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px;
+      background: #bdcc2b;
+      border: 2px solid #0e6873;
+      position: absolute;
+      border-radius: 50%;
+      color: #0e6873;
+      cursor: pointer;
+      top: 296px;
+      z-index: 12;
+      transform: rotateX(45deg);
+      left: 50px;
+    }
+    .fan .switch_btn_1 {
+      display: inline-block;
+      text-align: center;
+      width: 18px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px;
+      background: #bdcc2b;
+      border: 2px solid #0e6873;
+      position: absolute;
+      border-radius: 50%;
+      color: #0e6873;
+      cursor: pointer;
+      top: 296px;
+      z-index: 12;
+      transform: rotateX(45deg);
+      left: 75px;
+    }
+    .fan .switch_btn_2 {
+      display: inline-block;
+      text-align: center;
+      width: 18px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px;
+      background: #bdcc2b;
+      border: 2px solid #0e6873;
+      position: absolute;
+      border-radius: 50%;
+      color: #0e6873;
+      cursor: pointer;
+      top: 296px;
+      z-index: 12;
+      transform: rotateX(45deg);
+      left: 100px;
+    }
+    .fan .switch_btn_3 {
+      display: inline-block;
+      text-align: center;
+      width: 18px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px;
+      background: #bdcc2b;
+      border: 2px solid #0e6873;
+      position: absolute;
+      border-radius: 50%;
+      color: #0e6873;
+      cursor: pointer;
+      top: 296px;
+      z-index: 12;
+      transform: rotateX(45deg);
+      left: 125px;
+    }
+    .fan .on_off:checked + div {
+      box-shadow: none;
+    }
+    .fan .on_off:checked + div + .mask .leafs {
+      animation: leafRotate 2s 1 ease-out 1s forwards;
+
+    }
+  </style>
+</head>
+<body>
+<div class="fan">
+  <input type="radio" name="switch" class="switch_0">
+  <div class="switch_btn_0">0</div>
+  <input type="radio" name="switch" class="switch_1">
+  <div class="switch_btn_1">1</div>
+  <input type="radio" name="switch" class="switch_2">
+  <div class="switch_btn_2">2</div>
+  <input type="radio" name="switch" class="switch_3">
+  <div class="switch_btn_3">3</div>
+  <div class="mask">
+    <div class="logo">风扇</div>
+    <div class="line_1"></div>
+    <div class="line_2"></div>
+    <div class="line_3"></div>
+    <div class="line_4"></div>
+    <div class="line_5"></div>
+    <div class="line_6"></div>
+    <div class="leafs">
+      <div class="leaf_1"></div>
+      <div class="leaf_2"></div>
+      <div class="leaf_3"></div>
+    </div>
+  </div>
+  <div class="header"></div>
+  <div class="neck"></div>
+  <div class="neck_footer"></div>
+  <div class="bottom"></div>
+  <div class="bottom_footer_1"></div>
+  <div class="bottom_footer_2"></div>
+</div>
+</body>
+</html>
